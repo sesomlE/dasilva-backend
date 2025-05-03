@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import axios from 'axios';
-import Order from './models/orderModel.js';  // make sure this path is correct
+import Order from './models/orderModel.js'; // now this works ✅
 
 dotenv.config();
 
