@@ -1,10 +1,32 @@
-// models/orderModel.js
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
-const orderSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  message: String,
-});
+const orderSchema = new mongoose.Schema(
+  {
+    user: {
+      fullName: { type: String, required: true },
+      email: { type: String, required: true },
+    },
+    cartItems: [
+      {
+        name: { type: String, required: true },
+        quantity: { type: Number, required: true },
+        price: { type: Number, required: true },
+      },
+    ],
+    totalPrice: {
+      type: Number,
+      required: true,
+    },
+    paymentReference: {
+      type: String,
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-module.exports = mongoose.model('Order', orderSchema);
+// ✅ Default export
+const Order = mongoose.model('Order', orderSchema);
+export default Order;
