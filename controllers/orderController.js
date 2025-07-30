@@ -9,5 +9,6 @@ export const createOrder = async (req, res) => {
     console.error('Failed to create order:', error);
     res.status(500).json({ message: 'Failed to create order' });
   }
+  
 };
 console.log(req.body)
